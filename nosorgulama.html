@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<head>
+<title>No Sorgulama</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script type="text/javascript">
+function kontrol(){
+	var no = document.getElementById("ogrenci").value;
+	if(no.length != 10){
+		document.getElementById("sonuc").innerHTML = "Eksik Giriş Yaptınız";}
+		else if((no.substring(0,8)).toUpperCase() == "Y1360540"){
+			document.getElementById("sonuc").innerHTML = "Sakarya Üniversitesi Öğrencisi";
+			document.getElementById("sonuc").style.color="green";
+		}
+		else {
+			document.getElementById("sonuc").innerHTML = "Kayıtlı Öğrenci Bulunamadı!";
+			document.getElementById("sonuc").style.color="red";
+	}
+}
+</script>
+
+<script src="sakaryastyle.css"></script>
+</head>
+
+<body>
+<form class="no">
+<label>Öğrenci Numarası:</label><br>
+<input type="text" id="ogrenci"><br>
+<button type="button" onClick="kontrol()" >Sorgula!</button><br>
+<label id="sonuc"></label>
+</form>
+</body>
+</html>
