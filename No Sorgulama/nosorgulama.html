@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<head>
+<title>No Sorgulama</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script src="jquery-2.1.0.min.js" ></script>
+<script src="jquery-ui-1.10.4/jquery-1.10.2.js"></script>
+<link href="sakaryastyle.css" rel="stylesheet" type="text/css">
+<script>/*
+function kontrol(){
+	var no = document.getElementById("ogrenci").value;
+	if(no.length < 10){
+		document.getElementById("sonuc").innerHTML = "Eksik Giriş Yaptınız";
+		document.getElementById("sonuc").style.color="red";}
+		else if((no.substring(0,8)).toUpperCase() == "Y1360540"){
+			document.getElementById("sonuc").innerHTML = "Sakarya Üniversitesi Öğrencisi";
+			document.getElementById("sonuc").style.color="green";
+		}
+		else {
+			document.getElementById("sonuc").innerHTML = "Kayıtlı Öğrenci Bulunamadı!";
+			document.getElementById("sonuc").style.color="red";
+	}
+}
+*/
+$(document).ready(function(){
+	
+	$(".sorgu").hide();
+	$("button:first").click(function(){
+		$(".sorgu").show();
+		var deger = $("#ogrenci").val();
+		if(deger.length<10){
+			$("div.sorgu ul").append("<li><a>Eksik Giriş Yaptınız!: "+deger+"</a></li>");
+			$("div.sorgu ul li").last().css({"background-color":"#FF0F0F"});
+			}
+		else if((deger.substring(0,8)).toUpperCase()== "Y1360540" && deger.length == 10){
+			$("div.sorgu ul").append("<li><a>Sakarya Üniversitesi Öğrencisi: "+deger+"</a></li>");
+			$("div.sorgu ul li").last().css({"background-color":"#0C0"});
+			}
+		else {
+			$("div.sorgu ul").append("<li><a>Kayıtlı Öğrenci Bulunamadı: "+deger+"</a></li>");
+			$("div.sorgu ul li").last().css({"background-color":"#F00"});
+			}
+	});
+
+});
+</script>
+
+</head>
+
+<body>
+
+<div class="form">
+	<div class="bas">
+	</div>
+	<div class="orta">
+	<label id="etiket">Öğrenci No:</label>
+	<input type="text" id="ogrenci">
+	<button type="button" onClick="kontrol()" >Sorgula!</button><br>
+	<label id="sonuc"></label><br>
+	</div>
+</div>
+
+<div class="sorgu">
+	<ul></ul>
+</div>
+
+</body>
+</html>
